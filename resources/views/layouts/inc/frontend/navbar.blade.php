@@ -54,7 +54,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a>
+                                <li><a class="dropdown-item" href="{{ url('orders') }}"><i class="fa fa-list"></i> My Orders</a>
                                 </li>
                                 <li><a class="dropdown-item" href="{{ url('wishlist') }}"><i class="fa fa-heart"></i> Favorit Saya (<livewire:frontend.wishlist-count />)</a>
                                 </li>

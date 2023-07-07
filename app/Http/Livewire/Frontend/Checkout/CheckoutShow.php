@@ -7,12 +7,15 @@ use App\Models\Order;
 use Livewire\Component;
 use App\Models\Orderitem;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class CheckoutShow extends Component
 {
     public $carts, $totalProductAmount = 0;
 
     public $fullname, $email, $phone, $pincode, $address, $payment_mode = NULL, $payment_id = NULL;
+
+    public $snapToken;
 
     public function rules()
     {
@@ -23,6 +26,34 @@ class CheckoutShow extends Component
             'pincode' => 'required|string|max:6|min:5',
             'address' => 'required|string|max:500',
         ];
+    }
+
+    public function checkout(Request $request){
+        $this->payment_mode = 'Multi Payment';
+        $checkout = $this->placeOrder();
+
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => $this->id,
+                'gross_amount' => $this->totalProductAmount,
+            ),
+            'customer_details' => array(
+                'fullname' => $request->name,
+                'phone' => $request->phone,
+            ),
+        );
+
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        return view('livewire.frontend.checkout.checkout-show', ['snapToken' => $snapToken]);
     }
 
     public function placeOrder()

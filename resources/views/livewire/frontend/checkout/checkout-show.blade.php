@@ -16,7 +16,7 @@
                             <hr>
                             <small>* Barang akan diantar dalam 3-5 hari.</small>
                             <br/>
-                            <small>* Sudah termasuk PPN</small>
+                            <small>* Sudah termasuk PPN.</small>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -76,7 +76,15 @@
                                             <div class="tab-pane fade" id="onlinePayment" role="tabpanel" aria-labelledby="onlinePayment-tab" tabindex="0">
                                                 <h6>Multipayment</h6>
                                                 <hr/>
-                                                <button wire:loading.attr="disabled" type="button" class="btn btn-warning text-white">Bayar Sekarang</button>
+                                                <button type="button" wire:loading.attr="disabled" wire:click="checkout" class="btn btn-warning text-white" disabled>
+                                                    <span wire:loading.remove wire:target="checkout">
+                                                        Bayar Sekarang
+                                                    </span>
+                                                    <span wire:loading wire:target="checkout">
+                                                        Membuat pesanan...
+                                                    </span>
+                                                </button>
+                                                <small>* Sedang dalam perbaikan.</small>
                                             </div>
                                         </div>
                                     </div>
