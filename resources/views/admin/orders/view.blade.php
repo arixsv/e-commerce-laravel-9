@@ -6,6 +6,12 @@
 
     <div class="row">
         <div class="col-md-12">
+
+            @if (session('message'))
+                <div class="alert alert-success mb-3">{{ session('message') }}</div>
+            @endif
+
+
             <div class="card">
                 <div class="card-header">
                     <h3>Detail Item Pembeli</h3>
@@ -97,6 +103,40 @@
 
                 </div>
             </div>
+
+            <div class="card border mt-3">
+                <div class="card-body">
+                    <h4>Proses Order (Perbarui Status Order)</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <form action="{{ url('admin/orders/'.$order->id) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+
+                                <label>Perbarui Status Order</label>
+                                <div class="input-group">
+                                    <select name="order_status" class="form-select">
+                                        <option value="">-- Pilih Status Order --</option>
+                                        <option value="sedang diproses" {{  Request::get('status') == 'sedang diproses' ? 'selected':''  }}>Sedang Diproses</option>
+                                        <option value="telah diterima" {{ Request::get('status') == 'telah diterima' ? 'selected':'' }}>Telah Diterima</option>
+                                        <option value="pending" {{ Request::get('status') == 'pending' ? 'selected':'' }}>Pending</option>
+                                        <option value="dibatalkan" {{ Request::get('status') == 'dibatalkan' ? 'selected':'' }}>Dibatalkan</option>
+                                        <option value="out-for-delivery" {{ Request::get('status') == 'out-for-delivery' ? 'selected':'' }}>Out for Delivery</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary text-white">Update</button>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="col-md-7">
+                            <br/>
+                            <h4 class="mt-3">Status Order Sebelumnya : <span class="text-uppercase">{{ $order->status_message }}</span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 

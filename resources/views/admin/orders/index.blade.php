@@ -22,7 +22,7 @@
                             <div class="col-md-3">
                                 <label>Filter berdasarkan Status</label>
                                 <select name="status" class="form-select">
-                                    <option value="">Select All Status</option>
+                                    <option value="">Pilih Semua Status</option>
                                     <option value="sedang diproses" {{ Request::get('status') == 'sedang diproses' ? 'selected':'' }}>Sedang Diproses</option>
                                     <option value="telah diterima" {{ Request::get('status') == 'telah diterima' ? 'selected':'' }}>Telah Diterima</option>
                                     <option value="pending" {{ Request::get('status') == 'pending' ? 'selected':'' }}>Pending</option>
