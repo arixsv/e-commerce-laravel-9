@@ -34,7 +34,7 @@
                                             <td class="text-center">{{ $item->payment_mode }}</td>
                                             <td class="text-center">{{ $item->created_at->format('d-m-Y') }}</td>
                                             <td class="text-center">{{ $item->status_message }}</td>
-                                            <td class="text-center"><a href="{{ url('orders/'.$item->id) }}" class="btn btn-primary btn-sm">Lihat</a></td>
+                                            <td class="text-center"><a href="{{ url('orders/'.$item->id) }}" class="btn btn-primary btn-sm text-white">Lihat</a></td>
                                         </tr>
                                     @empty
                                         <tr>
