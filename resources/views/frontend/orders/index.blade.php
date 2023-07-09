@@ -16,7 +16,7 @@
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr class="text-center">
-                                        <th>Order ID</th>
+                                        <th>ID Order</th>
                                         <th>Tracking No</th>
                                         <th>Nama</th>
                                         <th>Mode Pembayaran</th>

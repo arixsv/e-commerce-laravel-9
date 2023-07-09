@@ -12,11 +12,86 @@
 
                         <h4 class="text-primary">
                             <i class="fa fa-shopping-cart text-dark"></i> My Order Details
-                            <a href="" class="btn btn-danger btn-sm float-end">Kembali</a>
+                            <a href="{{ url('orders') }}" class="btn btn-danger btn-sm float-end">Kembali</a>
                         </h4>
                         <hr>
 
-                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Detail Order</h5>
+                                <hr>
+                                <h6>ID Order : {{ $order->id }}</h6>
+                                <h6>Tracking No/ID : {{ $order->tracking_no }}</h6>
+                                <h6>Pesanan Dibuat : {{ $order->created_at->format('d-m-Y h:i A') }}</h6>
+                                <h6>Metode Pembayaran : {{ $order->payment_mode }}</h6>
+                                <h6 class="border p-2 text-success">
+                                    Status Pemesanan : <span class="text-uppercase">{{ $order->status_message }}</span>
+                                </h6>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Detail User</h5>
+                                <hr>
+                                <h6>Nama Lengkap : {{ $order->fullname }}</h6>
+                                <h6>Email : {{ $order->email }}</h6>
+                                <h6>Telepon : {{ $order->phone }}</h6>
+                                <h6>Alamat : {{ $order->address }}</h6>
+                                <h6>Kode Pos : {{ $order->pincode }}</h6>
+                            </div>
+                        </div>
+
+                        <br>
+                        <h5>Order Items</h5>
+                        <hr>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>ID Item</th>
+                                        <th>Gambar</th>
+                                        <th>Produk</th>
+                                        <th>Harga</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $totalPrice = 0;
+                                    @endphp
+                                    @foreach ($order->orderItems as $orderItem)
+                                        <tr>
+                                            <td class="text-center" width="10%">{{ $orderItem->id }}</td>
+                                            <td class="text-center" width="10%">
+                                                @if ($orderItem->product->productImages)
+                                                        <img src="{{ asset($orderItem->product->productImages[0]->image) }}"
+                                                        style="width: 50px; height: 50px" alt="">
+                                                    @else
+                                                        <img src="" style="width: 50px; height: 50px" alt="">
+                                                    @endif
+                                            </td>
+                                            <td>
+                                                {{ $orderItem->product->name }}
+                                                @if ($orderItem->productColor)
+                                                    @if ($orderItem->productColor->color)
+                                                        <span>- Warna : {{ $orderItem->productColor->color->name }}</span>
+                                                    @endif
+                                                @endif
+                                            </td>
+                                            <td width="10%">Rp. {{ $orderItem->product->selling_price }}</td>
+                                            <td class="text-center" width="10%">{{ $orderItem->quantity }}</td>
+                                            <td width="10%" class="fw-bold">Rp. {{ $orderItem->quantity * $orderItem->product->selling_price }}</td>
+                                            @php
+                                                $totalPrice += $orderItem->product->selling_price *  $orderItem->quantity;
+                                            @endphp
+                                        </tr>
+                                    @endforeach
+                                    <tr>
+                                        <td colspan="5" class="fw-bold">Total Keseluruhan :</td>
+                                        <td colspan="1" class="fw-bold">Rp. {{ $totalPrice }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
                     </div>
                 </div>
