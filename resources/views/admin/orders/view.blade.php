@@ -14,20 +14,19 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3>Detail Item Pembeli</h3>
+                    <h3>Detail Item Pembeli
+                        <a href="{{ url('admin/orders') }}" class="btn btn-danger btn-sm float-end mx-1 text-white">Kembali</a>
+                        <a href="{{ url('admin/invoice/'.$order->id.'/generate') }}" class="btn btn-primary btn-sm float-end mx-1 text-white">Download Faktur</a>
+                        <a href="{{ url('admin/invoice/'.$order->id) }}" target="_blank" class="btn btn-warning btn-sm float-end mx-1 text-white">Lihat Faktur</a>
+                    </h3>
                 </div>
                 <div class="card-body">
-                    <h4 class="text-primary">
-                        <i class="fa fa-shopping-cart text-dark"></i> Detail Item Pembeli
-                        <a href="{{ url('admin/orders') }}" class="btn btn-danger btn-sm float-end text-white">Kembali</a>
-                    </h4>
-                    <hr>
-
+                
                     <div class="row">
                         <div class="col-md-6">
-                            <h5>Detail Order</h5>
+                            <h5>Detail Pembelian</h5>
                             <hr>
-                            <h6>ID Order : {{ $order->id }}</h6>
+                            <h6>ID Pembelian : {{ $order->id }}</h6>
                             <h6>Tracking No/ID : {{ $order->tracking_no }}</h6>
                             <h6>Pesanan Dibuat : {{ $order->created_at->format('d-m-Y h:i A') }}</h6>
                             <h6>Metode Pembayaran : {{ $order->payment_mode }}</h6>
