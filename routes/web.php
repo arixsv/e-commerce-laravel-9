@@ -27,6 +27,7 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
     Route::get('/collections/{category_slug}/{product_slug}', 'productDisplay');
 
     Route::get('/new-arrivals', 'newArrival');
+    Route::get('/featured-products', 'featuredProducts');
 });
 
 Route::middleware(['auth'])->group(function () {

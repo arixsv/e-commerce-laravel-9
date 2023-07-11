@@ -101,7 +101,7 @@
                         <a class="nav-link" href="{{ url('/new-arrivals') }}">Terbaru</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Featured Products</a>
+                        <a class="nav-link" href="{{ url('/featured-products') }}">Produk Populer</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Electronics</a>
