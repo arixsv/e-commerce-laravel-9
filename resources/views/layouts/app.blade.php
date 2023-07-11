@@ -26,6 +26,9 @@
     <link href="{{ asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet">
 
+    <!-- Magnifying Effect - Gambar Produk -->
+    <link href="{{ asset('assets/magnifying/jquery.exzoom.css') }}" rel="stylesheet">
+
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
 
     <!-- Styles Alert JS -->
@@ -58,8 +61,11 @@
     </script>
 
     <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+
+    <script src="{{ asset('assets/magnifying/jquery.exzoom.js') }}"></script>
     @yield('script')
 
     @livewireScripts
+    @stack('scripts')
 </body>
 </html>
