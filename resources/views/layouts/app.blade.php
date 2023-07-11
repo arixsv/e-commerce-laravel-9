@@ -45,6 +45,8 @@
         @include('layouts.inc.frontend.navbar')
 
         @yield('content')
+
+        @include('layouts.inc.frontend.footer')
         
     </div>
 
