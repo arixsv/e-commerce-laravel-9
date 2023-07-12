@@ -81,7 +81,7 @@
               </a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="documentation/documentation.html">
+              <a class="nav-link" href="{{ url('admin/settings') }}">
                   <i class="mdi mdi-settings menu-icon"></i>
                   <span class="menu-title">Pengaturan Halaman</span>
               </a>

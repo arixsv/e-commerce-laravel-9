@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Admin Aullya Olshop')
+@section('title', 'Daftar Produk')
 
 @section('content')
 

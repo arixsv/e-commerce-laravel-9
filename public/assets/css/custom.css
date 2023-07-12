@@ -3,6 +3,7 @@
     padding: 40px 0px;
     background-color: #2874f0;
     color: #fff;
+    flex-shrink: none;
 }
 .footer-area a{
     text-decoration: none;
@@ -20,6 +21,7 @@
 .copyright-area{
     padding: 14px 0px;
     background-color: #262626;
+    flex-shrink: none;
 }
 .copyright-area p{
     margin-bottom: 0px;
