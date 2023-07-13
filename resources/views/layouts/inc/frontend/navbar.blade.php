@@ -3,7 +3,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
-                    <h5 class="brand-name">{{ $appSetting->website_name ?? 'website name' }}</h5>
+                    <h5 class="brand-name">
+                        <a href="{{ url('/') }}" class="text-white text-decoration-none">{{ $appSetting->website_name ?? 'website name' }}</a>
+                    </h5>
                 </div>
                 <div class="col-md-7 my-auto">
                     <form role="search">
@@ -98,10 +100,10 @@
                         <a class="nav-link" href="{{ url('/collections') }}">Kategori</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/new-arrivals') }}">Terbaru</a>
+                        <a class="nav-link" href="{{ url('/new-arrivals') }}">Produk Terbaru</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/featured-products') }}">Produk Populer</a>
+                        <a class="nav-link" href="{{ url('/featured-products') }}">Produk Terpopuler</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Electronics</a>
@@ -113,10 +115,10 @@
                         <a class="nav-link" href="#">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="#">Appliances</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Appliances</a>
+                        <a class="nav-link" href="#">Food</a>
                     </li>
                 </ul>
             </div>
