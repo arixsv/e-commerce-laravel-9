@@ -22,7 +22,7 @@
                     <div class="mb-2"><a href="{{ url('/collections') }}" class="text-white">Kategori</a></div>
                     <div class="mb-2"><a href="{{ url('/') }}" class="text-white">Trending Produk</a></div>
                     <div class="mb-2"><a href="{{ url('/new-arrivals') }}" class="text-white">Produk Terbaru</a></div>
-                    <div class="mb-2"><a href="{{ url('/featured-products') }}" class="text-white">Produk Populer</a>
+                    <div class="mb-2"><a href="{{ url('/featured-products') }}" class="text-white">Produk Terpopuler</a>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -34,9 +34,7 @@
                         </p>
                     </div>
                     <div class="mb-2">
-                        <a href="" class="text-white">
                             <i class="fa fa-phone"></i> {{ $appSetting->phone1 ?? 'phone1' }}
-                        </a>
                     </div>
                     <div class="mb-2">
                         <a href="" class="text-white">
