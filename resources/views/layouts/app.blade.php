@@ -31,6 +31,7 @@
     <link href="{{ asset('assets/magnifying/jquery.exzoom.css') }}" rel="stylesheet">
 
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ asset('admin/images/favicon.png') }}" />
 
     <!-- Styles Alert JS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />

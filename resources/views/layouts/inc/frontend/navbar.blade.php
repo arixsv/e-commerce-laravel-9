@@ -8,9 +8,9 @@
                     </h5>
                 </div>
                 <div class="col-md-7 my-auto">
-                    <form role="search">
+                    <form action="{{ url('search') }}" method="GET" role="search">
                         <div class="input-group">
-                            <input type="search" placeholder="Cari produk di Aullya Olshop" class="form-control" />
+                            <input type="search" name="search" value="{{ Request::get('search') }}" placeholder="Cari produk di Aullya Olshop" class="form-control" />
                             <button class="btn bg-white" type="submit">
                                 <i class="fa fa-search"></i>
                             </button>
