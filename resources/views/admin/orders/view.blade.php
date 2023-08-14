@@ -14,10 +14,19 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3>Detail Item Pembeli
-                        <a href="{{ url('admin/orders') }}" class="btn btn-danger btn-sm float-end mx-1 text-white">Kembali</a>
-                        <a href="{{ url('admin/invoice/'.$order->id.'/generate') }}" class="btn btn-primary btn-sm float-end mx-1 text-white">Download Faktur</a>
-                        <a href="{{ url('admin/invoice/'.$order->id) }}" target="_blank" class="btn btn-warning btn-sm float-end mx-1 text-white">Lihat Faktur</a>
+                    <h3>Detail Pembelian
+                        <a href="{{ url('admin/orders') }}" class="btn btn-danger btn-sm float-end mx-1 text-white">
+                            <span class="mdi mdi-arrow-left-bold"></span> Kembali
+                        </a>
+                        <a href="{{ url('admin/invoice/'.$order->id.'/generate') }}" class="btn btn-primary btn-sm float-end mx-1 text-white">
+                            <span class="mdi mdi-download"></span> Download Struk
+                        </a>
+                        <a href="{{ url('admin/invoice/'.$order->id) }}" target="_blank" class="btn btn-warning btn-sm float-end mx-1 text-white">
+                            <span class="mdi mdi-eye"></span> Lihat Struk
+                        </a>
+                        <a href="{{ url('admin/invoice/'.$order->id.'/mail') }}" class="btn btn-info btn-sm float-end mx-1 text-white disabled">
+                            <span class="mdi mdi-send"></span> Kirimkan Email
+                        </a>
                     </h3>
                 </div>
                 <div class="card-body">
